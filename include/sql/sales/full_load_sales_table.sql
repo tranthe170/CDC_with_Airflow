@@ -1,0 +1,1 @@
+INSERT INTO data_model.sales SELECT * FROM stage.sales;

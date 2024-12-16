@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS data_model.products_bkp AS data_model.products;

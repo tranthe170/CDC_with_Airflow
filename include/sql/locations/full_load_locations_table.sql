@@ -1,0 +1,1 @@
+INSERT INTO data_model.locations SELECT * FROM temp.locations;

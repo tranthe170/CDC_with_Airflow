@@ -1,0 +1,1 @@
+INSERT INTO data_model.customers SELECT * FROM temp.customers;
