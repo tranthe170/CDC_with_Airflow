@@ -1,14 +1,43 @@
-Here’s the updated `README.md` with a new section for building a dashboard in Power BI:
+# Change Data Capture (CDC) in Airflow
+
+## Table of Contents
+
+- [Change Data Capture (CDC) in Airflow](#change-data-capture-cdc-in-airflow)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Dashboards](#dashboards)
+    - [Sales Dashboard](#sales-dashboard)
+    - [Time Intelligence Dashboard](#time-intelligence-dashboard)
+  - [Data Pipeline Overview](#data-pipeline-overview)
+    - [Pipeline Components:](#pipeline-components)
+  - [Data Stack and Assumptions](#data-stack-and-assumptions)
+  - [Pipeline Steps](#pipeline-steps)
+    - [**1. Extract**](#1-extract)
+    - [**2. Transform**](#2-transform)
+    - [**3. Load**](#3-load)
+  - [Airflow DAG for CDC with SCD Type II](#airflow-dag-for-cdc-with-scd-type-ii)
+    - [DAG Flow](#dag-flow)
+  - [Future Improvements](#future-improvements)
 
 ---
-
-# Change Data Capture (CDC) in Airflow
 
 ## Overview
 
 Change Data Capture (CDC), introduced by Bill Inmon, the father of Data Warehousing, refers to the process of identifying and tracking record-level changes in operational data. CDC ensures synchronization between an Operational Data Store (ODS) and a Data Warehouse (DWH), enabling timely and accurate data for strategic decision-making. The frequency of synchronization—inter-day, intra-day, or real-time—dictates the implementation approach.
 
 This project demonstrates a CDC process using **Apache Airflow**, synchronizing data between an **Operational Data Store (PostgreSQL)** and a **Data Warehouse (Clickhouse)**.
+
+---
+
+## Dashboards
+
+### Sales Dashboard
+
+![Sales Dashboard](./images/sales_dashboard.png)
+
+### Time Intelligence Dashboard
+
+![Time Intelligence Dashboard](./images/time_intelligence_dashboard.png)
 
 ---
 
@@ -20,9 +49,9 @@ Data generated in a source system must propagate to downstream systems like a DW
 2. **Transform**: Clean, consolidate, and prepare data for synchronization.
 3. **Load**: Apply the transformed data to Clickhouse.
 
-![Data Pipeline Journey](./images/data_pipeline_journey.png)
-
 ### Pipeline Components:
+
+![Data Pipeline Journey](./images/data_pipeline_journey.png)
 
 - **Source Tables**:
 
@@ -92,19 +121,10 @@ The Airflow DAG is modular and efficiently handles the CDC process. Key tasks in
     - Update operations for modified records.
     - Historical tracking for SCD Type 2.
 
----
-
 ### DAG Flow
 
 ![DAG Flow](./images/dags_flow_1.png)
 ![DAG Flow](./images/dags_flow_2.png)
-
----
-
-## Dashboard with Power BI
-![Sales Dashboard](./images/sales_dashboard.png)
-
-![Time Intelligence Dashboard](./images/time_intelligence_dashboard.png)
 
 ---
 
@@ -124,3 +144,4 @@ The Airflow DAG is modular and efficiently handles the CDC process. Key tasks in
 
 5. **Enhanced Dashboards**:
    - Build more complex dashboards with advanced analytics and AI-driven insights in Power BI.
+
